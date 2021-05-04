@@ -60,7 +60,6 @@ const MoviesState = (props) => {
         trending: state.trending,
         searched: state.searched,
         movie: state.movie,
-        movieInfo: state.movieInfo,
         trendingMovies,
         searchMovies,
         getMovieInfo

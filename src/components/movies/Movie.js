@@ -15,8 +15,8 @@ const Movie = (props) => {
   } = movie;
 
   useEffect(() => {
-    getMovieInfo(props.match.params.title);
-  }, [props.match.params.title]);
+    getMovieInfo(props.match.params.title || title);
+  }, [getMovieInfo, props.match.params.title]);
 
   return (
     <div className='movie-card-container'>
