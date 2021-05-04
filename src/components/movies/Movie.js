@@ -3,7 +3,6 @@ import moment from 'moment';
 import MoviesContext from '../../context/moviesContext';
 
 const Movie = (props) => {
-
   const moviesContext = useContext(MoviesContext);
   const { movie, getMovieInfo } = moviesContext;
   const {
@@ -16,16 +15,15 @@ const Movie = (props) => {
   } = movie;
 
   useEffect(() => {
-    getMovieInfo(props.match.params.title)
-  }, [])
+    getMovieInfo(props.match.params.title);
+  }, [props.match.params.title]);
 
-console.log(props.match.params)
   return (
     <div className='movie-card-container'>
       <div
         className='movie-card'
         style={{
-          background: `url(https://image.tmdb.org/t/p/original${backdrop_path})`,
+          backgroundImage: `url(https://image.tmdb.org/t/p/original${backdrop_path})`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center center',
@@ -33,7 +31,11 @@ console.log(props.match.params)
       >
         <div className='movie-poster'>
           <img
-            src={poster_path ? `https://image.tmdb.org/t/p/original${poster_path}` : 'https://yanktontrailers.com/wp-content/uploads/2020/02/noimage.png'}
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/original${poster_path}`
+                : 'https://yanktontrailers.com/wp-content/uploads/2020/02/noimage.png'
+            }
             alt='poster'
           />
         </div>

@@ -13,7 +13,7 @@ function App() {
   return (
     <MoviesState>
       <Router>
-    <div className="App">
+    <div className="app">
       <Header />
       <div className="inner-container">
         <Switch>
