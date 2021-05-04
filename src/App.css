@@ -1,38 +1,267 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap');
+
+:root {
+  --primary-color: #165070;
+  --text-color: #4bbb5d;
+  --primary-font: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ body {
+   margin: 0;
+   font-family: var(--primary-font);
+ }
+
+ p.small-text {
+   font-size: 12px;
+ }
+
+ header {
+   width: 100%;
+   height: 15vh;
+   padding: 10px;
+   background: var(--primary-color);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+ }
+
+ header h1 {
+   color: var(--text-color);
+ }
+
+ header > p {
+   color: #fff;
+ }
+
+ header a {
+  color: var(--text-color);
+  
+ }
+
+ header a:hover {
+  text-decoration: none;
+ }
+
+ .inner-container {
+   margin: 0 auto;
+   width: 85vw;
+   padding: 10px;
+   display: flex;
+   flex-direction: column;
+ }
+
+ .search-hero {
+   position: relative;
+   width: 100%;
+   height: 45vh;
+   background:url('http://getwallpapers.com/wallpaper/full/4/f/3/1109760-vertical-inception-wallpaper-2633x1481.jpg') no-repeat center center/cover;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   z-index: 0;
+ }
+
+ .overlay {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(15, 56, 78, 0.8);
+   z-index: 1;
+ }
+
+ .search-hero h1,
+ .search-hero h3 {
+  color: #fff;
   text-align: center;
-}
+  z-index: 10;
+ }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+ .search-field {
+   z-index: 10;
+   width: 100%;
+   padding: 5px;
+   display: flex;
+   justify-content: center;
+ }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+ .search-field input {
+   width: 55%;
+   border-radius: 50px 0 0 50px;
+   padding: 8px;
+   border: 0;
+   outline: 0;
+   font-family: var(--primary-font);
+ }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+ .search-field button {
+   border-radius: 0 50px 50px 0;
+   border: 0;
+   padding: 8px 10px;
+   background: var(--primary-color);
+   outline:0;
+   width: 10%;
+   cursor: pointer;
+   color: var(--text-color);
+   font-family: var(--primary-font);
+   font-weight: 300;
+   text-transform: uppercase;
+ }
+
+ .search-field button > i {
+    color: var(--text-color);
+ }
+
+ /* TRENDING MOVIES */
+ .trending-container,
+ .searched-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
+
+ }
+
+ .trending-container > h2,
+ .searched-container > h2 {
+   margin: 20px 0;
+ }
+
+ .trending-movies,
+ .searched-movies   {
+   list-style: none;
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+   grid-gap: 30px;
+ }
+ 
+ .trending-movies .trending-movie-card,
+ .searched-movies .searched-movie-card {
+   padding: 5px;
+   display: flex;
+   flex-direction: column;
+   
+ }
+
+ div.trending-movie-card  .thumbnail,
+ div.searched-movie-card  .thumbnail {
+   position: relative;
+ }
+
+
+ div.trending-movie-card  .thumbnail .rating,
+ div.searched-movie-card  .thumbnail .rating{
+   border-radius: 50px;
+   width: 30px;
+   height: 30px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: var(--primary-color);
+   color: var(--text-color);
+   position: absolute;
+   top: -15px;
+   left: 5px;
+ }
+
+ div.trending-movie-card .thumbnail img,
+ div.searched-movie-card  .thumbnail img {
+   width: 100%;
+   border-radius: 5px;
+ }
+
+ div.trending-movie-card h4,
+ div.searched-movie-card h4 {
+   text-align: center;
+   font-size: 13px;
+
+ }
+
+ div.trending-movie-card small,
+ div.searched-movie-card small {
+   color: #333;
+   text-align: center;
+ }
+
+/* MOVIE CARD */
+
+.movie-card-container {
+  width: 100%;
+}
+
+.movie-card {
+  margin-top: 10px;
+  display: flex; 
+}
+
+.movie-card > .movie-poster {
+  width: 40%;
+}
+
+.movie-card > .movie-poster img {
+  width: 100%;
+  height: 100%;
+}
+
+.movie-details {
+  position: relative;
+  width: 60%;
+  padding: 40px;
+  z-index: 0;
+}
+
+.movie-details:after {
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 56, 78, 0.6);
+  z-index: -1;
+}
+
+.movie-details > div {
+  z-index: 10;
+}
+
+.col {
+  margin: 10px auto;
+}
+
+.movie-title-date,
+.movie-rating,
+.movie-summary {
+  color: #fff;
+}
+
+.movie-summary p {
+  line-height: 1.8;
+}
+
+.average-rating {
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: var(--primary-color);
+  color: var(--text-color);
 }
 
-.App-link {
-  color: #61dafb;
+a {
+  text-decoration: none;
+  color: #222;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a:hover {
+  text-decoration: underline;
 }
