@@ -15,7 +15,7 @@ const Movie = (props) => {
   } = movie;
 
   useEffect(() => {
-    getMovieInfo(props.match.params.title || title);
+    getMovieInfo(props.match.params.title);
   }, [getMovieInfo, props.match.params.title]);
 
   return (
